@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.typing {display:none;}
+			.box {background:red; width:120px; height:100px; text-align:center; padding:10px}
+		</style>
+		<title>jQuery</title>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('select').change(function() {
+					$("body").css('background-color', this.value);
+				});
+				$('input').focus(function() {
+					$('span').removeClass('typing');
+				});
+				$('input').blur(function() {
+					$('span').addClass('typing');
+				});
+				$('.box').mouseover(function() {
+					$('.box').css('background-color', 'blue');
+				});
+				$('.box').mouseout(function() {
+					$('.box').css('background-color', 'red');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form>
+			<select>
+				<option value="white">Choose a color</option>
+				<option value="red">Red</option>
+				<option value="blue">Blue</option>
+			</select>
+			<button>Clear</button>
+			<br><br>
+			<span class='typing'>Start Typing...</span>
+			<br>
+			<input type='text' placeholder='Click to focus' />
+			<br><br>
+			<div class='box'>
+				<h2>Hover to Change</h2>
+			</div>
+		</form>
+	</body>
+</html>

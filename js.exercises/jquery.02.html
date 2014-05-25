@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.lightOn {display:none;}
+		</style>
+		<title>jQuery</title>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+/*				$(".lightOff").click(function() {
+					$(".lightOff").hide();
+					$(".lightOn").show();
+					$("body").css('background-color', 'black');
+				});
+				$(".lightOn").click(function() {
+					$(".lightOn").hide();
+					$(".lightOff").show();
+					$("body").css('background-color', 'white');
+				});
+*/				$(".lightOff").on('click', function() {
+					$(".lightOff").hide();
+					$(".lightOn").show();
+					$("body").css('background-color', 'black');
+				});
+				$(".lightOn").bind('click', function() {
+					$(".lightOn").hide();
+					$(".lightOff").show();
+					$("body").css('background-color', 'white');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button class = "lightOn">Turn Light On</button>
+		<button class = "lightOff">Turn Light Off</button>
+	</body>
+</html>

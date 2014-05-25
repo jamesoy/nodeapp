@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+	<script type="text/javascript">
+		function showAlert() {
+			alert("Clicked on me");
+		}
+		function changeMe() {
+			var block = document.getElementById('block');
+			block.src = 'b.png';
+		}
+		function changeBack() {
+			var block = document.getElementById('block');
+			block.src = 'a.jpg';
+		}
+	</script>
+</head>
+<body>
+	<h1>Demo</h1>
+	<p>Hello World</p>
+	<a href = "#" onclick = showAlert()>Click me</a>
+	<img id = 'block' src = 'a.jpg' onmousemove = 'changeMe()' onmouseout = 'changeBack()' />
+</body>
+</html>
