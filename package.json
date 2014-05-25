@@ -1,0 +1,31 @@
+{
+  "name": "nodeapp",
+  "version": "0.1.0",
+  "description": "node.js exercises",
+  "main": "my.os.js",
+  "dependencies": {
+    "zipcode": "^0.1.1"
+  },
+  "devDependencies": {
+	"zipcode": "0.1.1",
+	"express": "*",
+	"ejs": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/jamesoy/nodeapp.git"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "James",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesoy/nodeapp/issues"
+  },
+  "homepage": "https://github.com/jamesoy/nodeapp"
+}
