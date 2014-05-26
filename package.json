@@ -4,10 +4,13 @@
   "description": "node.js exercises",
   "main": "my.os.js",
   "dependencies": {
-    "zipcode": "^0.1.1"
+    "zipcode": "*",
+	"jade": "*",
+	"stylus": "*",
+	"nib": "*"
   },
   "devDependencies": {
-	"zipcode": "0.1.1",
+	"zipcode": "*",
 	"express": "*",
 	"ejs": "*"
   },

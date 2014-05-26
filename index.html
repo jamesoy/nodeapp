@@ -1,2 +1,68 @@
-
-<h1>Hello from the index.html!</h1>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Backbone App</title>
+		<style>
+			li{list-style:none;border-bottom:1px #ccc dotted;padding:10px 0 10px 0}
+			h3{padding:8px;background:#f4f4f4;}
+		</style>
+	</head>
+	<body>
+	<h3>User List</h3>
+	<ul class="users"></ul>
+	
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="underscore-min.js"></script>
+		<script src="backbone-min.js"></script>
+		
+	<script type="text/template" id="userlist_template">
+		<li>
+			<strong>Username:</strong> <%= username %><br>
+			<strong>Email:</strong> <%= email %>
+		</li>
+	</script>
+	
+	<script>
+		$(function(){
+			var User = Backbone.Model.extend();
+			var UserList = Backbone.Collection.extend({
+				model: User,
+				url: 'users.json'
+			});
+			//Users View
+			var UsersView = Backbone.View.extend({
+				template: _.template($('#userlist_template').html()),
+				render: function(ev){
+					_.each(this.model.models, function(user){
+						var username = user.attributes['username'];
+						var email = user.attributes['email'];
+						//Assign template
+						var template = this.template(user.toJSON());
+						
+						$(this.el).append(template);
+					},this);
+					return this;
+				}
+			});
+			
+			var userList = new UserList;
+			
+			//App View
+			var AppView = Backbone.View.extend({
+				el:"body",
+				render: function(){
+					var usersView = new UsersView({model:userList});
+					var usersViewRender = usersView.render().el;
+					$('.users').html(usersViewRender);
+				},
+				initialize: function(){
+					var Options = {};
+					Options.success = this.render;
+					userList.fetch(Options);
+				}
+			});
+			var App = new AppView;
+		})
+	</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Backbone App</title>
+	</head>
+	<body>
+		<div id='user_container'></div>
+		
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="underscore-min.js"></script>
+		<script src="backbone-min.js"></script>
+		
+		<script type='text/template' id='user_template'>
+			<lable>Add User</label>
+			<input type='text' id='user_input' />
+			<input type='button' value='Add User' id='add_user' />
+		</script>
+		
+		<script>
+			UserView = Backbone.View.extend({
+				initialize: function() {
+					console.log("UserView created");
+					//alert("UserView created");
+					this.render();
+				},
+				render: function() {
+					var template = _.template($('#user_template').html(), {});
+					this.$el.html(template);
+				},
+				events: {
+					"click #add_user": "addUser"
+				},
+				addUser: function(ev) {
+					alert($('#user_input').val() + ' has been added');
+				}
+			});
+			
+			var userView = new UserView({el:$('#user_container')});
+		</script>
+	</body>
+</html>
